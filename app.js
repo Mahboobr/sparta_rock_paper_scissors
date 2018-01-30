@@ -24,46 +24,62 @@ while (round <= 5) {
   // win conditions
   if (P1move == "rock") {
     if (CPUmove == "rock") {
-      alert("It's a tie");
+      Tie()
     }else if (CPUmove == "paper") {
-      alert("Paper beats Rock");
-      alert("CPU wins");
-      CPUscore += 1;
+      PaperWins()
+      CPUWins()
     }else if (CPUmove == "scissors") {
-      alert("Rock beats Scissors");
-      alert("Player wins");
-      P1score += 1;
+      RockWins()
+      P1Wins()
     }
   }
 
   if (P1move == "paper") {
     if (CPUmove == "rock") {
-      alert("Paper beats rock");
-      alert("Player wins");
-      P1score += 1;
+      PaperWins()
+      P1Wins()
     }else if (CPUmove == "paper") {
-      alert("It's a tie");
+      Tie()
     }else if (CPUmove == "scissors") {
-      alert("Scissors beat Paper");
-      alert("CPU wins");
-      CPUscore += 1;
+      ScissorsWin()
+      CPUWins()
     }
   }
 
   if (P1move == "scissors") {
     if (CPUmove == "rock") {
-      alert("Rock beats Scissors");
-      alert("CPU wins");
-      CPUscore += 1;
+      RockWins()
+      CPUWins()
     }else if (CPUmove == "paper") {
-      alert("Scissors beat Paper");
-      alert("Player wins");
-      P1score += 1;
+      ScissorsWin()
+      P1Wins()
     }else if (CPUmove == "scissors") {
-      alert("It's a tie");
+      Tie()
     }
   }
   round += 1;
+  console.log("Player score: " + P1score + " " + "CPU score: " + CPUscore);
   alert("Player score: " + P1score + " " + "CPU score: " + CPUscore);
   if (P1score == 3 || CPUscore == 3) { break; }
+}
+
+function Tie() {
+  alert("It's a tie");
+}
+function ScissorsWin() {
+  alert("Scissors beat Paper");
+}
+function RockWins() {
+  alert("Rock beats Scissors");
+}
+function PaperWins() {
+  alert("Paper beats rock");
+}
+function CPUWins() {
+  alert("CPU wins");
+  CPUscore += 1;
+}
+function P1Wins() {
+  alert("Player wins");
+  P1score += 1;
 }
